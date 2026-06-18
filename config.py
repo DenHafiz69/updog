@@ -3,19 +3,16 @@ import json
 import os
 
 
-# Default config
 def generate_default(config_file) -> None:
 
     default_config = {
-        "cpu_threshold": 80,
-        "ram_threshold": 80,
-        "disk_threshold": 80,
+        "CPU": [{"warning": 80, "critical": 90}],
+        "RAM": [{"warning": 80, "critical": 90}],
+        "Disk": [{"warning": 80, "critical": 90}],
     }
 
     with open(config_file, "w") as f:
         json.dump(default_config, f, indent=4)
-
-    return
 
 
 def get_file_path() -> Path:
@@ -42,3 +39,12 @@ def get_config() -> dict:
         data = json.load(f)
 
     return data
+
+
+def print_config() -> None:
+    threshold = get_config()
+    for key, value in threshold.items():
+        print(f"- {key} ", end="")
+        for key2, value2 in value[0].items():
+            print(f"{key2.capitalize()}: {value2}% | ", end="")
+        print("")
