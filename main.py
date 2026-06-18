@@ -1,3 +1,4 @@
+from config import print_config
 from check import get_check
 from alert import get_alert
 from logs import get_logs
@@ -16,6 +17,8 @@ def main():
         get_alert()
     elif sys.argv[1] == "check":
         get_check()
+    elif sys.argv[1] == "config":
+        print_config()
 
 
 if __name__ == "__main__":
