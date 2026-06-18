@@ -3,10 +3,11 @@ import psutil
 
 
 class Metrics:
-    def __init__(self, name, current_percentage, threshold):
+    def __init__(self, name, current, warning, critical):
         self.name = name
-        self.current_percentage = current_percentage
-        self.threshold = threshold
+        self.current = current
+        self.warning = warning
+        self.critical = critical
 
 
 def get_metrics():
@@ -15,10 +16,27 @@ def get_metrics():
     ram_percent = psutil.virtual_memory().percent
     disk_percent = psutil.disk_usage("/").percent
 
-    default_threshold = get_config()
+    threshold = get_config()
 
-    cpu = Metrics("CPU", cpu_percent, default_threshold["cpu_threshold"])
-    ram = Metrics("RAM", ram_percent, default_threshold["ram_threshold"])
-    disk = Metrics("Disk", disk_percent, default_threshold["disk_threshold"])
+    cpu = Metrics(
+        "CPU",
+        cpu_percent,
+        threshold["CPU"][0]["warning"],
+        threshold["CPU"][0]["critical"],
+    )
+
+    ram = Metrics(
+        "RAM",
+        ram_percent,
+        threshold["RAM"][0]["warning"],
+        threshold["RAM"][0]["critical"],
+    )
+
+    disk = Metrics(
+        "Disk",
+        disk_percent,
+        threshold["Disk"][0]["warning"],
+        threshold["Disk"][0]["critical"],
+    )
 
     return cpu, ram, disk
