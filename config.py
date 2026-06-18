@@ -9,6 +9,7 @@ def generate_default(config_file) -> None:
     default_config = {
         "cpu_threshold": 80,
         "ram_threshold": 80,
+        "disk_threshold": 80,
     }
 
     with open(config_file, "w") as f:
