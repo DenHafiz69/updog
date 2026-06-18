@@ -10,14 +10,17 @@ def check_status(metric: Metrics):
 
     if metric.current <= metric.warning:
         print(f"[{check_mark}] {metric.name}: {metric.current}% (Healthy)")
+        return "healthy"
     elif metric.current > metric.warning and metric.current <= metric.critical:
         print(
             f"[{warning}] {metric.name}: {metric.current}% (WARNING: Exceeds {metric.warning}% threshold)"
         )
+        return "warning"
     else:
         print(
             f"[{exclamation_mark}] {metric.name}: {metric.current}% (CRITICAL: Exceeds {metric.critical}% threshold.)"
         )
+        return "critical"
 
 
 def get_status():
