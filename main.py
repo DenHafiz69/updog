@@ -9,15 +9,10 @@ import sys
 def main():
     print("This is Updog!")
 
-    get_config()  # Check and create if config did not exist
-
     if len(sys.argv) == 1:
         print("Not enough argument.")
     elif sys.argv[1] == "status":
-        cpu, ram, disk = get_status()
-        print(f"CPU: {cpu}%")
-        print(f"RAM: {ram}%")
-        print(f"Disk: {disk}%")
+        get_status()
     elif sys.argv[1] == "logs":
         get_logs()
     elif sys.argv[1] == "alert":
