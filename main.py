@@ -6,8 +6,6 @@ import sys
 
 
 def main():
-    print("This is Updog!")
-
     if len(sys.argv) == 1:
         print("Not enough argument.")
     elif sys.argv[1] == "status":

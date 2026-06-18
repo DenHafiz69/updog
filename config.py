@@ -41,7 +41,4 @@ def get_config() -> dict:
     with open(config_file, "r") as f:
         data = json.load(f)
 
-    print(f"Data: {data}")
-    print(f"Data type: {type(data)}")
-
     return data
