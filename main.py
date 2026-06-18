@@ -2,7 +2,6 @@ from check import get_check
 from alert import get_alert
 from logs import get_logs
 from status import get_status
-from config import get_config
 import sys
 
 
