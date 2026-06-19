@@ -12,7 +12,7 @@ def main():
     elif sys.argv[1] == "status":
         get_status()
     elif sys.argv[1] == "logs":
-        get_logs()
+        get_logs(sys.argv)
     elif sys.argv[1] == "alert":
         get_alert()
     elif sys.argv[1] == "check":
