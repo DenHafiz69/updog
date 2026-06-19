@@ -18,6 +18,12 @@ class Metrics:
         else:
             return 2  # 2 is critical
 
+    def log(self):
+        if self.check_status() == 0:
+            return f"{self.name}: {self.current}% is within thresholds"
+        else:
+            return f"{self.name}: {self.current}% exceeds {self.warning}"
+
     def print_status(self):
 
         check_mark = emojize(":check_mark_button:")
