@@ -20,7 +20,6 @@ uv pip install -r requirements.txt
 * Print config to terminal. It would generate one if it does not exist yet.
 ```bash
 updog config
-	
 ```
 * Set a specific value for a certain threshold in config.
 ```bash
