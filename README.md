@@ -37,3 +37,15 @@ updog status
 ```bash
 updog status cpu
 ```
+* Check and print status to logs. Does not print or return anything. Should be used with a cronjob(?)
+```bash
+updog check
+```
+
+### Print Logs
+
+* Print logs to terminal. Can specify how many lines of logs do you want.
+```bash
+updog logs # Print 5 lines of logs to terminal
+updog logs --limit 2
+```
