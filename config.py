@@ -4,7 +4,7 @@ import os
 
 
 # def set_config(flag: str, metric: str, percent: float):
-def set_config(percent):
+def set_config(flag, metric, percent):
 
     # User call with flag --set-warning or --set-critical
     # Then followed by the percentage
@@ -12,23 +12,22 @@ def set_config(percent):
     config_data = get_config()
     config_file_path = get_file_path()
 
+    if metric.lower() == "cpu":
+        metric_name = "CPU"
+    elif metric.lower() == "ram":
+        metric_name = "RAM"
+    elif metric.lower() == "disk":
+        metric_name = "Disk"
+    else:
+        raise ValueError(
+            "Metric does not exist. Choose either 'CPU', 'RAM', or 'Disk'."
+        )
+
     # Edit the config here
-    config_data["CPU"]["warning"] = percent
+    config_data[metric_name][flag] = percent
 
     with open(config_file_path, "w") as f:
         json.dump(config_data, f, indent=4)
-
-
-def generate_default(config_file) -> None:
-
-    default_config = {
-        "CPU": {"warning": 80, "critical": 90},
-        "RAM": {"warning": 80, "critical": 90},
-        "Disk": {"warning": 80, "critical": 90},
-    }
-
-    with open(config_file, "w") as f:
-        json.dump(default_config, f, indent=4)
 
 
 def get_file_path() -> Path:
@@ -44,6 +43,18 @@ def get_file_path() -> Path:
         generate_default(config_file_path)
 
     return config_file_path
+
+
+def generate_default(config_file=get_file_path()) -> None:
+
+    default_config = {
+        "CPU": {"warning": 80, "critical": 90},
+        "RAM": {"warning": 80, "critical": 90},
+        "Disk": {"warning": 80, "critical": 90},
+    }
+
+    with open(config_file, "w") as f:
+        json.dump(default_config, f, indent=4)
 
 
 def get_config() -> dict:
