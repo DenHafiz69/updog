@@ -3,15 +3,8 @@ import json
 import os
 
 
-def set_critical(argv):
-    pass
-
-
-def set_warning(argv):
-    pass
-
-
-def set_config(flag: str, percent: float):
+# def set_config(flag: str, metric: str, percent: float):
+def set_config(percent):
 
     # User call with flag --set-warning or --set-critical
     # Then followed by the percentage
@@ -19,12 +12,11 @@ def set_config(flag: str, percent: float):
     config_data = get_config()
     config_file_path = get_file_path()
 
-    print(f"Config: {config_data}")
-
     # Edit the config here
+    config_data["CPU"]["warning"] = percent
 
     with open(config_file_path, "w") as f:
-        json.dump(config_file_path, f, indent=4)
+        json.dump(config_data, f, indent=4)
 
 
 def generate_default(config_file) -> None:
