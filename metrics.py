@@ -58,22 +58,22 @@ def get_metrics():
     cpu = Metrics(
         "CPU",
         cpu_percent,
-        threshold["CPU"][0]["warning"],
-        threshold["CPU"][0]["critical"],
+        threshold["CPU"]["warning"],
+        threshold["CPU"]["critical"],
     )
 
     ram = Metrics(
         "RAM",
         ram_percent,
-        threshold["RAM"][0]["warning"],
-        threshold["RAM"][0]["critical"],
+        threshold["RAM"]["warning"],
+        threshold["RAM"]["critical"],
     )
 
     disk = Metrics(
         "Disk",
         disk_percent,
-        threshold["Disk"][0]["warning"],
-        threshold["Disk"][0]["critical"],
+        threshold["Disk"]["warning"],
+        threshold["Disk"]["critical"],
     )
 
     return cpu, ram, disk

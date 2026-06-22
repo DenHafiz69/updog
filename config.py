@@ -2,7 +2,13 @@ from pathlib import Path
 import json
 import os
 
-#
+
+def set_critical(argv):
+    pass
+
+
+def set_warning(argv):
+    pass
 
 
 def set_config(flag: str, percent: float):
@@ -16,8 +22,6 @@ def set_config(flag: str, percent: float):
     print(f"Config: {config_data}")
 
     # Edit the config here
-    #
-    #
 
     with open(config_file_path, "w") as f:
         json.dump(config_file_path, f, indent=4)
@@ -26,9 +30,9 @@ def set_config(flag: str, percent: float):
 def generate_default(config_file) -> None:
 
     default_config = {
-        "CPU": [{"warning": 80, "critical": 90}],
-        "RAM": [{"warning": 80, "critical": 90}],
-        "Disk": [{"warning": 80, "critical": 90}],
+        "CPU": {"warning": 80, "critical": 90},
+        "RAM": {"warning": 80, "critical": 90},
+        "Disk": {"warning": 80, "critical": 90},
     }
 
     with open(config_file, "w") as f:
@@ -65,6 +69,6 @@ def print_config() -> None:
     threshold = get_config()
     for key, value in threshold.items():
         print(f"- {key} ", end="")
-        for key2, value2 in value[0].items():
+        for key2, value2 in value.items():
             print(f"{key2.capitalize()}: {value2}% | ", end="")
         print("")
