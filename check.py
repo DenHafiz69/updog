@@ -1,6 +1,4 @@
 # Check health and log if needed
-from time import sleep
-import random
 from metrics import get_metrics
 import logging
 
