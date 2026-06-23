@@ -16,7 +16,7 @@ def main():
     elif sys.argv[1] == "alert":
         get_alert()
     elif sys.argv[1] == "check":
-        get_check()
+        get_check(sys.argv)
     elif sys.argv[1] == "config":
         if "--set-critical" in sys.argv:
             index = sys.argv.index("--set-critical")
