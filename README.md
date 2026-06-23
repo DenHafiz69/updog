@@ -9,6 +9,7 @@
 ```bash
 git clone https://github.com/DenHafiz69/updog.git
 cd updog
+source .venv/bin/activate
 uv pip install -e .
 ```
 
