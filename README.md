@@ -24,8 +24,8 @@ updog config
 * Set a specific value for a certain threshold in config.
 ```bash
 updog config --default # Reset the config to default values
-updog config --set-critical cpu 95 # Set critical threshold for cpu to 95%
 updog config --set-warning ram 85 # Set warning threshold for ram to 85%
+updog config --set-critical cpu 95 # Set critical threshold for cpu to 95%
 ```
 
 ### Check Status
