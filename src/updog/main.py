@@ -1,8 +1,8 @@
-from config import print_config, set_config, generate_default
-from check import get_check
-from alert import get_alert
-from logs import get_logs
-from status import get_status
+from updog.config import print_config, set_config, generate_default
+from updog.check import get_check
+from updog.alert import get_alert
+from updog.logs import get_logs
+from updog.status import get_status
 import sys
 
 

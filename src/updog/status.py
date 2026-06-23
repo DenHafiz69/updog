@@ -1,4 +1,4 @@
-from metrics import get_metrics
+from updog.metrics import get_metrics
 
 
 def flag_check(args):

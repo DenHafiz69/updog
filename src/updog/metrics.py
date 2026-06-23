@@ -1,4 +1,4 @@
-from config import get_config
+from updog.config import get_config
 from emoji import emojize
 import psutil
 

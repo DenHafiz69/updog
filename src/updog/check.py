@@ -1,5 +1,5 @@
 # Check health and log if needed
-from metrics import get_metrics
+from updog.metrics import get_metrics
 import logging
 from time import sleep
 
