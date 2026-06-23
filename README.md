@@ -41,6 +41,7 @@ updog status cpu
 * Check and print status to logs. Does not print or return anything. Should be used with a cronjob(?)
 ```bash
 updog check
+updog check 10 # Repeat the checking 10 times
 ```
 
 ### Print Logs
