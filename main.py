@@ -10,7 +10,7 @@ def main():
     if len(sys.argv) == 1:
         print("Not enough argument.")
     elif sys.argv[1] == "status":
-        get_status()
+        get_status(sys.argv)
     elif sys.argv[1] == "logs":
         get_logs(sys.argv)
     elif sys.argv[1] == "alert":
