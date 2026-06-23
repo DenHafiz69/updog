@@ -21,8 +21,10 @@ class Metrics:
     def log(self):
         if self.check_status() == 0:
             return f"{self.name}: {self.current}% is within thresholds"
+        elif self.check_status() == 1:
+            return f"{self.name}: {self.current}% exceeds {self.warning}% warning threshold"
         else:
-            return f"{self.name}: {self.current}% exceeds {self.warning}"
+            return f"{self.name}: {self.current}% exceeds {self.critical}% critical threshold"
 
     def print_status(self):
 
