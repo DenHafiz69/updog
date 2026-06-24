@@ -1,4 +1,5 @@
 from pathlib import Path
+from emoji import emojize
 import json
 import os
 
@@ -69,9 +70,11 @@ def get_config() -> dict:
 
 
 def print_config() -> None:
+    exclamation_mark = emojize(":red_exclamation_mark:")
+    warning = emojize(":warning:")
     threshold = get_config()
     for key, value in threshold.items():
-        print(f"- {key} ", end="")
-        for key2, value2 in value.items():
-            print(f"{key2.capitalize()}: {value2}% | ", end="")
-        print("")
+        print(f"{key} ", end="")
+        print(
+            f"{warning} Warning: {value['warning']} {exclamation_mark} Critical {value['critical']}"
+        )
