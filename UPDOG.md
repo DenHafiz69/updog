@@ -18,42 +18,42 @@ Here is your text formatted cleanly in Markdown:
 ### Stack
 
 * **Go**
-* REST API
-* Monitoring workers
+	* REST API
+	* Monitoring workers
 
 
 * **Python**
-* Data analysis
-* Alert rules
-* Scheduled jobs
+	* Data analysis
+	* Alert rules
+	* Scheduled jobs
 
 
 * **Bash**
-* Installation script
-* Backup
+	* Installation script
+	* Backup
 
 
 * **Docker**
-* Entire application
+	* Entire application
 
 
 * **Kubernetes**
-* Deploy all services
+	* Deploy all services
 
 
 * **AWS**
-* ECS or EKS
-* S3 backups
-* RDS
-* CloudWatch
+	* ECS or EKS
+	* S3 backups
+	* RDS
+	* CloudWatch
 
 
 * **Terraform**
-* Provision infrastructure
+	* Provision infrastructure
 
 
 * **GitHub Actions**
-* CI/CD
+	* CI/CD
 
 
 
