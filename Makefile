@@ -1,27 +1,15 @@
-include .env
-export
+.PHONY: build run test tidy
 
-DB_URL=postgres://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@localhost:5432/updog?sslmode=disable
-MIGRATIONS_DIR=db/migrations
+BINARY=bin/updog
 
-.PHONY: migrate-create migrate-up migrate-down sqlc
+build:
+	CGO_ENABLED=0 go build -ldflags="-s -w" -o $(BINARY) ./cmd/updog
 
-# Create a new migration file: make migrate-create NAME=add_users
-migrate-create:
-	goose -dir $(MIGRATIONS_DIR) create $(NAME) sql
+run:
+	go run ./cmd/updog
 
-# Apply migrations
-migrate-up:
-	goose -dir $(MIGRATIONS_DIR) postgres "$(DB_URL)" up
+test:
+	go test -v -race ./...
 
-# Rollback last migration
-migrate-down:
-	goose -dir $(MIGRATIONS_DIR) postgres "$(DB_URL)" down
-
-# Check migration status
-migrate-status:
-	goose -dir $(MIGRATIONS_DIR) postgres "$(DB_URL)" status
-
-# Generate Go code via SQLC
-sqlc:
-	sqlc generate
+tidy:
+	go mod tidy

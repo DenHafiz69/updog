@@ -3,8 +3,16 @@
 .env.*
 !.env.example
 
+# SQLite database files
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
 # Go build & test artifacts
 bin/
+/updog
 *.exe
 *.exe~
 *.dll
